@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div style="margin-left:10%; margin-right:10%; margin-top:30px">
 
-</head>
-<body>
+        {% for blog in blogs %}
+            <div class="card" style="width: 100%; margin-bottom: 10px">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ blog.pub_date }}</h6>
+                    <p class="card-text">{{ blog.summary }}</p>
+                    <a href={% url 'detail' blog.id %} class="card-link">...more</a>
+                </div>
+            </div>
+        {% endfor %}
 
-{% for blog in blogs%}
-    <h1>{{ blog.title }}</h1>
-    <p>{{ blog.pub_date }}</p>
-    <p>{{ blog.body }}</p>
-    <br><br>
-{% endfor %}
-
-</body>
-</html>
+    </div>
+{% endblock %}

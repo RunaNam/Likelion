@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div style="margin-left:10%; margin-right:10%; margin-top:30px">
+        <h1>Blog detail</h1>
+        <div class="card" style="width: 100%;">
+
+            <div class="card-body">
+                <h5 class="card-title">{{ blog_detail.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ blog_detail.pub_date }}</h6>
+                <p class="card-text">{{ blog_detail.body }}</p>
+                <a href={% url 'home' %} class="card-link">home</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
